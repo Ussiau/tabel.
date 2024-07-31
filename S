@@ -1,0 +1,251 @@
+local __DARKLUA_BUNDLE_MODULES
+
+__DARKLUA_BUNDLE_MODULES = {
+    cache = {},
+    load = function(m)
+        if not __DARKLUA_BUNDLE_MODULES.cache[m] then
+            __DARKLUA_BUNDLE_MODULES.cache[m] = {
+                c = __DARKLUA_BUNDLE_MODULES[m](),
+            }
+        end
+
+        return __DARKLUA_BUNDLE_MODULES.cache[m].c
+    end,
+}
+do
+    function __DARKLUA_BUNDLE_MODULES.c()
+        local ConfigurationTypes = __DARKLUA_BUNDLE_MODULES.load('a')
+        local DefaultConfig = {
+            Universal = {
+                Checks = {
+                    OnScreen = true,
+                    Friend = false,
+                    Crew = false,
+                    KOGrab = false,
+                    Wall = false,
+                },
+                ClosestPoint = {
+                    ReductionPercentage = 0,
+                    Center = true,
+                    UseV2 = true,
+                },
+                Settings = {
+                    VersionCheck = 'error',
+                    DisableIfSpeedAbove = 100,
+                },
+            },
+            TargetLock = {
+                Enabled = true,
+                ChangeTargetBind = Enum.KeyCode.Y,
+            },
+            SilentAim = {
+                Enabled = true,
+                Default = true,
+                Keybind = Enum.KeyCode.T,
+                Hold = false,
+                Prediction = {
+                    Ground = 0.1245,
+                    Air = 0.115,
+                },
+                HitChance = 100,
+                GunSpecific = {
+                    Enabled = false,
+                    Detection = {
+                        Close = 35,
+                        Mid = 65,
+                        Far = math.huge,
+                    },
+                    Pistols = {},
+                    Shotguns = {},
+                    Automatics = {},
+                    Other = {},
+                },
+                FOV = {
+                    ChecksEnabled = true,
+                    Mode = 'Mouse',
+                    Prediction = false,
+                    Closest = false,
+                    Torso = false,
+                    VisibleIfTarget = false,
+                    VisibleColor = nil,
+                    CornersScaleFactor = nil,
+                    Properties = {
+                        Type = 'Circle',
+                        Visible = true,
+                        Transparency = 0.5,
+                        Color = Color3 .fromRGB(255, 0, 0),
+                        Filled = false,
+                        Radius = 69,
+                    },
+                },
+                AntiCurve = {
+                    Enabled = false,
+                    FOV = {
+                        ChecksEnabled = false,
+                        VisibleIfTarget = false,
+                        Mode = 'Mouse',
+                        Prediction = true,
+                        Closest = false,
+                        Torso = false,
+                        VisibleColor = nil,
+                        CornersScaleFactor = nil,
+                        Properties = {
+                            Type = 'Circle',
+                            Visible = true,
+                            Transparency = 0.5,
+                            Color = Color3 .fromRGB(255, 0, 0),
+                            Filled = false,
+                            Radius = 30,
+                        },
+                    },
+                },
+            },
+            Aimbot = {
+                Enabled = true,
+                Default = false,
+                Keybind = Enum.KeyCode.G,
+                Hold = false,
+                Mode = {
+                    Ground = 'Assist',
+                    Air = 'Assist',
+                },
+                Part = {
+                    Ground = 'Head',
+                    Air = 'Head',
+                },
+                Camera = true,
+                Prediction = {
+                    Ground = 0.1,
+                    Air = 0.13,
+                },
+                DisableIf = {
+                    ThirdPerson = false,
+                    Reloading = false,
+                    NoGun = false,
+                },
+                Assist = {
+                    Ground = {
+                        Strength = 3,
+                        Speed = 1.23,
+                        Smoothing = 1,
+                    },
+                    Air = {
+                        Strength = 3,
+                        Speed = 1.23,
+                        Smoothing = 1,
+                    },
+                },
+                Easing = {
+                    Ground = {
+                        Smoothing = 0.195,
+                        EasingStyle = Enum.EasingStyle.Circular,
+                        EasingDirection = Enum.EasingDirection.InOut,
+                    },
+                    Air = {
+                        Smoothing = 0.135,
+                        EasingStyle = Enum.EasingStyle.Circular,
+                        EasingDirection = Enum.EasingDirection.InOut,
+                    },
+                },
+                GunSpecific = {
+                    Enabled = false,
+                    Detection = {
+                        Close = 35,
+                        Mid = 65,
+                        Far = math.huge,
+                    },
+                    Pistols = {},
+                    Shotguns = {},
+                    Automatics = {},
+                    Other = {},
+                },
+            },
+            Triggerbot = {
+                Enabled = true,
+                Default = true,
+                Keybind = Enum.KeyCode.T,
+                Hold = true,
+                Prediction = {
+                    Ground = 0.1225,
+                    Air = 0.1,
+                },
+                Cooldown = 0,
+                GunSpecific = {
+                    Enabled = false,
+                    Detection = {
+                        Close = 35,
+                        Mid = 65,
+                        Far = math.huge,
+                    },
+                    Pistols = {},
+                    Shotguns = {},
+                    Automatics = {},
+                    Other = {},
+                },
+                FOV = {
+                    ChecksEnabled = true,
+                    Mode = 'Follow',
+                    Prediction = true,
+                    Closest = false,
+                    Torso = false,
+                    VisibleIfTarget = true,
+                    VisibleColor = nil,
+                    CornersScaleFactor = nil,
+                    Properties = {
+                        Type = 'Square',
+                        Visible = true,
+                        Transparency = 0.5,
+                        Color = Color3 .fromRGB(255, 0, 0),
+                        Filled = false,
+                        Size = Vector2 .new(30, 60),
+                    },
+                },
+            },
+            Macro = {
+                Speed = {
+                    Enabled = true,
+                    Default = false,
+                    Keybind = Enum.KeyCode.RightControl,
+                    Hold = true,
+                    Speed = 1.5,
+                    ScrollWheel = false,
+                },
+                Noclip = {
+                    Enabled = true,
+                    Default = false,
+                    Keybind = Enum.KeyCode.RightControl,
+                    Hold = true,
+                    Gun = '',
+                },
+            },
+            AutoPrediction = {
+                Enabled = true,
+                RangeCoefficient = 0,
+                AdditionalInterval = 0.071,
+                Precision = 3,
+                VelocityMultiplier = Vector3 .new(1, 0, 1),
+            },
+            Visuals = {
+                FOVs = {
+                    PredictedClosest = {
+                        ChecksEnabled = false,
+                        Mode = 'Follow',
+                        Prediction = false,
+                        Closest = true,
+                        Torso = false,
+                        VisibleIfTarget = true,
+                        VisibleColor = nil,
+                        CornersScaleFactor = nil,
+                        Properties = {
+                            Type = 'Circle',
+                            Visible = true,
+                            Transparency = 0.5,
+                            Color = Color3 .fromRGB(255, 0, 0),
+                            Filled = false,
+                            Radius = 5,
+                        },
+                    },
+                },
+            },
+            Misc = {Safety = true},
+        }
