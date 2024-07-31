@@ -1,3 +1,6 @@
+            Misc = {Safety = true},
+        }
+
         return DefaultConfig
     end
 
